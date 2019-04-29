@@ -59,8 +59,8 @@ class Person extends Component {
 
             <div className="container">
                 <div>
-                    <h1> Person Information</h1>
-                    <table className="table table-dark">
+                    <h1 Align="center"> Person Information</h1>
+                    <table className="table table-grey">
                         <thead>
                             <tr>
                                 {/* <th scope="col">#</th> */}
@@ -96,7 +96,7 @@ class Person extends Component {
                                                 style={{
                                                     cursor: 'pointer',
                                                     float: 'right',
-                                                    color: 'black',
+                                                    color: '#415e8c',
                                                     marginRight: '1rem'
                                                 }}
                                             />

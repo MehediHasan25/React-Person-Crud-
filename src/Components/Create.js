@@ -70,16 +70,17 @@ class Create extends Component {
         return (
             <div className="container">
             <div>
-                <h1>Add Person</h1>
+                <h1  Align="center">Add Person</h1>
                 </div>
 
-            
-                <div>
+                
+                <div Align="center">
                     <form onSubmit={this.onSubmit}>
-                        
-                        
+                     
+                    <div className='col-md-5' >
                         <TextInputGroup
                             label="Name"
+                            Align="left"
                             name="name"
                             type="text"
                             placeholder="Enter your name"
@@ -87,6 +88,7 @@ class Create extends Component {
                             onChange={this.onChangeName}
                             error={errors.name}
                         />
+                        
 
                         <TextInputGroup
                             label="Organization"
@@ -107,16 +109,21 @@ class Create extends Component {
                             onChange={this.onChangeDesignation}
                             error={errors.designation}
                         />
-
-                        <input
+                        </div>
+                        
+                       
+                        {/* <input
                             type="submit"
                             value="Add Person"
                             className="btn btn-primary"
-                        />
-
+                        /> */}
+                        <div className="col-md-5" Align="right">
+                        <button type="submit" className="btn btn-primary btn-sm">Add Person</button>
+                        </div>
                     </form>
 
                 </div>
+                
                 </div>
 
 

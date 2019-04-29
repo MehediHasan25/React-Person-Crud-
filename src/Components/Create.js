@@ -70,10 +70,13 @@ class Create extends Component {
         return (
             <div className="container">
             <div>
-                <h1  Align="center">Add Person</h1>
+                <br></br>
+                
+                <h1 style={{textAlign:"center", color:"#989799"}} >Add Person</h1>
                 </div>
 
-                
+                <br></br>
+                <br></br>
                 <div Align="center">
                     <form onSubmit={this.onSubmit}>
                      
@@ -117,8 +120,9 @@ class Create extends Component {
                             value="Add Person"
                             className="btn btn-primary"
                         /> */}
+                       
                         <div className="col-md-5" Align="right">
-                        <button type="submit" className="btn btn-primary btn-sm">Add Person</button>
+                        <button type="submit" className="btn btn-info btn-sm">Add Person</button>
                         </div>
                     </form>
 

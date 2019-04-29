@@ -58,15 +58,18 @@ class Person extends Component {
         return (
 
             <div className="container">
+            <br></br>
+               
                 <div>
-                    <h1 Align="center"> Person Information</h1>
+                    <h1 style={{textAlign:"center",color:"#989799"}}> Person Information</h1>
+                    <br></br>
                     <table className="table table-grey">
                         <thead>
                             <tr>
                                 {/* <th scope="col">#</th> */}
-                                <th scope="col">Name</th>
-                                <th scope="col">Organization</th>
-                                <th scope="col">Designation</th>
+                                <th scope="col" style={{color:"#989799"}}>Name</th>
+                                <th scope="col" style={{color:"#989799"}}>Organization</th>
+                                <th scope="col" style={{color:"#989799"}}>Designation</th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
 
@@ -75,7 +78,7 @@ class Person extends Component {
                         <tbody >
                             {persons.map(person => (
 
-                                <tr key={person._id}>
+                                <tr key={person.id}>
                                     {/* <th scope="row" >{person._id}</th>  */}
 
                                     <td>{person.name}</td>
@@ -86,17 +89,17 @@ class Person extends Component {
                                             // onClick={this.onDelete.bind(this, person.id)}
                                             onClick={() => this.onDelete(person._id)}
                                             className="fas fa-times"
-                                            style={{ cursor: 'pointer', color: 'red' }}>
+                                            style={{ cursor: 'pointer', color: '#c6053c' }}>
                                         </i>
                                     </td>
                                     <td>
                                         <Link to={`/update/${person._id}`}>
                                             <i
-                                                className="fas fa-pencil-alt"
+                                                className="fas fa-user-edit"
                                                 style={{
                                                     cursor: 'pointer',
                                                     float: 'right',
-                                                    color: '#415e8c',
+                                                    color: '#20a9b2',
                                                     marginRight: '1rem'
                                                 }}
                                             />

@@ -12,7 +12,7 @@ const TextInputGroup = ({
 }) => {
     return ( 
         
-        <div className="form-group" Align="left">
+        <div className="form-group" style={{textAlign:"left"}}>
         <label htmlFor={name} >{label}</label>
         <input
             type={type}

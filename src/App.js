@@ -6,6 +6,7 @@ import Person from './Components/Person';
 import Nav from './Components/layout/Nav';
 import Create from './Components/Create';
 import Edit from './Components/Edit';
+import Search from './Components/Search';
 class App extends Component {
   render() {
     return (
@@ -17,6 +18,7 @@ class App extends Component {
            <Route exact path="/" component={Person}/>
            <Route exact path="/add" component={Create}/>]
            <Route exact path="/update/:id" component={Edit}/>
+           <Route exact path="/search" component={Search}/>
            
            </Switch>
         </div>

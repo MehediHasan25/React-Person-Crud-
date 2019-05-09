@@ -1,26 +1,44 @@
 import React, { Component } from 'react';
-//import axios from 'axios';
+import axios from 'axios';
 
 class Search extends Component {
     state = {
-        name: " ",
-        errors: {},
-        showDetails: true
+        name: "",
+        organization: "",
+        designation: "",
+        query: " ",
+        errors: {}
+
     };
 
-    handleChange = e => this.setState({[e.target.name]:e.target.value});
+    handleChange = e => this.setState({ query: e.target.value });
 
-        
-  handleSubmit= e =>{
-    e.preventDefault();
-        console.log(this.state.name);
-   }
 
-   
+    handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const { name, organization, designation, query } = this.state;
+
+        if (query === '') {
+            this.setState({ errors: { query: 'Name is Required' } });
+            return;
+        }
+        console.log(query);
+
+        const obj = {
+            name,
+            organization,
+            designation
+        }
+        axios.post(`http://localhost:5000/search/${query}`, obj)
+            .then(res => console.log(res.data));
+    }
+
+
 
 
     render() {
-        const {name} = this.state;
+        const { query, errors } = this.state;
         return (
             <div className="container">
 
@@ -28,34 +46,41 @@ class Search extends Component {
 
                 <br></br>
 
+                <div>
+                    <form onSubmit={this.handleSubmit}>
 
-                <form onSubmit={this.handleSubmit}>
+                        <div className="col-md-5">
+                            <div className="form-group">
+                                <input
+                                    className="form-control"
+                                    type="text"
+                                    name="name"
+                                    onChange={this.handleChange}
+                                    id="name"
+                                    value={query}
+                                    placeholder="Search Name"
+                                    errors={errors.query}
+                                >
+                                </input>
+                            </div>
+                        </div>
 
-                                <div className="col-md-5">
-                                <div className="form-group">
-                                    <input
-                                        className="form-control"
-                                        type="text"
-                                        name="name"
-                                        onChange={this.handleChange}
-                                        id="name"
-                                        value={name}
-                                        placeholder="Search Name"
-                                        >
-                                    </input>
-                                </div>
-                                </div>
+                        <br></br>
 
-                            <br></br>
+                        <div className="col-md-5" >
+                            {/* <input type="button" className="btn btn-info btn-sm">Search</> */}
+                            <input
+                                type="submit"
+                                value="Search"
+                                className="btn btn-info btn-sm"
+                            />
+                        </div>
 
-                                <div className="col-md-5" >
-                                    <button type="button" className="btn btn-info btn-sm">Search</button>
-                                </div>
-
-                </form>
+                    </form>
+                </div>
 
             </div>
-             
+
 
         );
     }

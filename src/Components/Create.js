@@ -46,8 +46,9 @@ class Create extends Component {
 
         };
 
-        axios.post(`http://localhost:5000/add`, obj)
+        axios.post(`http://localhost:5000/add`, obj)  
         .then(res=> console.log("Successful"));
+        
 
         this.setState({
             name: '',
@@ -76,7 +77,7 @@ class Create extends Component {
                 </div>
 
                 <br></br>
-                <br></br>
+                
                 <div Align="center">
                     <form onSubmit={this.onSubmit}>
                      

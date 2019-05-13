@@ -67,9 +67,9 @@ class Person extends Component {
                         <thead>
                             <tr>
                                 {/* <th scope="col">#</th> */}
-                                <th scope="col" style={{color:"#989799"}}>Name</th>
-                                <th scope="col" style={{color:"#989799"}}>Organization</th>
-                                <th scope="col" style={{color:"#989799"}}>Designation</th>
+                                <th scope="col" style={{color:"#564975"}}>Name</th>
+                                <th scope="col" style={{color:"#564975"}}>Organization</th>
+                                <th scope="col" style={{color:"#564975"}}>Designation</th>
                                 <th scope="col"></th>
                                 <th scope="col"></th>
 

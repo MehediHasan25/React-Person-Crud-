@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+
 import axios from 'axios';
 
 class Search extends Component {
@@ -7,39 +9,53 @@ class Search extends Component {
         organization: "",
         designation: "",
         query: " ",
-        errors: {}
+        pres:{}
+        
 
     };
+
+   
+
+
 
     handleChange = e => this.setState({ query: e.target.value });
 
 
     handleSubmit = async (e) => {
         e.preventDefault();
+        console.log("In handle");
 
-        const { name, organization, designation, query } = this.state;
+        const {query} = this.state;
 
-        if (query === '') {
-            this.setState({ errors: { query: 'Name is Required' } });
-            return;
-        }
-        console.log(query);
+      //  console.log(query);
 
-        const obj = {
-            name,
-            organization,
-            designation
-        }
-        axios.post(`http://localhost:5000/search/${query}`, obj)
-            .then(res => console.log(res.data));
-    }
+        
+        
+    const qpres = await axios.post(`http://localhost:5000/search/${query}`);
+    console.log(qpres);
+    this.setState({
+      name: qpres.data.name,
+      organization: qpres.data.organization,
+      designation: qpres.data.designation
+    });
+    console.log(this.state.pres);
+     
+    
+}
+ componentDidUpdate(){
+     console.log("component Did update");
+ }
 
 
 
 
     render() {
-        const { query, errors } = this.state;
+        const { query} = this.state;
+        
+      
+        
         return (
+            
             <div className="container">
 
                 <h1 style={{ textAlign: "center", color: "#989799" }} >Search Person </h1>
@@ -59,10 +75,12 @@ class Search extends Component {
                                     id="name"
                                     value={query}
                                     placeholder="Search Name"
-                                    errors={errors.query}
+                                    
                                 >
                                 </input>
                             </div>
+                           
+
                         </div>
 
                         <br></br>
@@ -75,11 +93,28 @@ class Search extends Component {
                                 className="btn btn-info btn-sm"
                             />
                         </div>
-
+                        
                     </form>
+                    <hr></hr>
+                    <div>
+                        <ul>
+                            <li>
+                                {this.state.name == undefined ? "" : this.state.name}
+                            </li>
+                            <li>
+                                {this.state.organization == undefined ? "" : this.state.organization}
+                            </li>
+                            <li>
+                                {this.state.designation == undefined ? "" : this.state.designation}
+                            </li>
+                        </ul>
+                        
+                    </div>  
                 </div>
-
+             
             </div>
+            
+           
 
 
         );

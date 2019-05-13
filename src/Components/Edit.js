@@ -87,15 +87,17 @@ class Edit extends Component {
         const { name, organization, designation, errors } = this.state;
         return (
             <div className="container">
-            <div>
-                <h1>Update Person</h1>
+             <div>
+                <br></br>
+                
+                <h1 style={{textAlign:"center", color:"#989799"}} >Update Person</h1>
                 </div>
 
-            
-                <div>
+                <br></br>
+                <div Align="center">
                     <form onSubmit = {this.onSubmit}>
                         
-                        
+                    <div className='col-md-5' >
                         <TextInputGroup
                             label="Name"
                             name="name"
@@ -125,12 +127,18 @@ class Edit extends Component {
                             onChange={this.onChangeDesignation}
                             error={errors.designation}
                         />
+                        </div>
 
+
+                        <div className="col-md-5" Align="right">
                         <input
                             type="submit"
                             value="Update"
-                            className="btn btn-primary"
+                            className="btn btn-info btn-sm"
                         />
+                        </div>
+
+                        
 
                     </form>
 

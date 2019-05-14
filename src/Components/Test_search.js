@@ -14,8 +14,7 @@ class Search extends Component {
 
     };
 
-   
-
+  
 
 
     handleChange = e => this.setState({ query: e.target.value });
@@ -23,7 +22,7 @@ class Search extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("In handle");
+      //  console.log("In handle");
 
         const {query} = this.state;
 
@@ -32,19 +31,22 @@ class Search extends Component {
         
         
     const qpres = await axios.post(`http://localhost:5000/search/${query}`);
-    console.log(qpres);
+    //console.log(qpres);
     this.setState({
       name: qpres.data.name,
       organization: qpres.data.organization,
       designation: qpres.data.designation
     });
-    console.log(this.state.pres);
+   // console.log(this.state.pres);
      
     
 }
- componentDidUpdate(){
-     console.log("component Did update");
- }
+
+
+componentDidUpdate(){
+    console.log("Compnent did update");
+    console.log(this.state.name);
+}
 
 
 
@@ -97,7 +99,7 @@ class Search extends Component {
                     </form>
                     <hr></hr>
                     <div>
-                        <ul>
+                        {/* <ul>
                             <li>
                                 {this.state.name === undefined ? "" : this.state.name}
                             </li>
@@ -107,9 +109,12 @@ class Search extends Component {
                             <li>
                                 {this.state.designation === undefined ? "" : this.state.designation}
                             </li>
+                        </ul> */}
+                        <ul>
+                            <li>{this.state.name}</li>
                         </ul>
-                        
                     </div>  
+
                 </div>
              
             </div>
